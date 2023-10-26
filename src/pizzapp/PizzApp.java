@@ -56,6 +56,11 @@ public class PizzApp extends javax.swing.JFrame {
 
         cmdValaszthatoPizzak.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Margherita", "Hawaii", "Songoku", "Diavola" }));
         cmdValaszthatoPizzak.setSelectedIndex(2);
+        cmdValaszthatoPizzak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdValaszthatoPizzakActionPerformed(evt);
+            }
+        });
 
         pnlMeret.setBorder(javax.swing.BorderFactory.createTitledBorder("Méret"));
 
@@ -237,6 +242,32 @@ public class PizzApp extends javax.swing.JFrame {
     private void rdbMeret25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbMeret25ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rdbMeret25ActionPerformed
+
+    private void cmdValaszthatoPizzakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdValaszthatoPizzakActionPerformed
+    int pizzaAlapAr = 0;
+    int pizzaalap = cmdValaszthatoPizzak.getSelectedIndex();
+        if (pizzaalap == 1){
+            pizzaAlapAr = 1350;
+        }else if (pizzaalap == 2){
+            pizzaAlapAr = 1550;
+        }else if (pizzaalap == 3){
+            pizzaAlapAr = 1750;
+        }else if (pizzaalap == 4){
+            pizzaAlapAr = 2150;
+        };
+        
+        int meret = 1;
+        int extra1 = 0;
+        int extra2 = 0;
+        int extra3 = 0;
+        int extrak = extra1 + extra2 + extra3;
+        int db = 1;
+        
+        int vegsoAr = (pizzaAlapAr * meret)+extrak;
+        vegsoAr *= db;
+        
+        lblAr.setText("" + vegsoAr);
+    }//GEN-LAST:event_cmdValaszthatoPizzakActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

@@ -1,19 +1,23 @@
 package pizzapp;
 
-public class PizzApp extends javax.swing.JFrame {
+import javax.swing.JOptionPane;
 
+public class PizzApp extends javax.swing.JFrame {
+    int pizzaAlapAr = -1;
+    int db = 1;
+    int extrak;
+    double vegsoAr;
+    double meret;
+        
     public PizzApp() {
         initComponents();
-        
-        int pizzaAlapAr2 = 1750;
-        
-        int meret = 1;
         int extra1 = 0;
         int extra2 = 0;
         int extra3 = 0;
-        int extrak = extra1 + extra2 + extra3;
-        int db = 1;
-        
+        extrak = extra1 + extra2 + extra3;
+    
+        int pizzaAlapAr2 = 1750;
+        int meret = 1;
         int vegsoAr = (pizzaAlapAr2 * meret)+extrak;
         vegsoAr *= db;
         
@@ -66,6 +70,11 @@ public class PizzApp extends javax.swing.JFrame {
 
         buttonGroup1.add(rdbMeret25);
         rdbMeret25.setText("25 cm");
+        rdbMeret25.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                rdbMeret25ItemStateChanged(evt);
+            }
+        });
         rdbMeret25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rdbMeret25ActionPerformed(evt);
@@ -75,6 +84,11 @@ public class PizzApp extends javax.swing.JFrame {
         buttonGroup1.add(rdbMeret32);
         rdbMeret32.setSelected(true);
         rdbMeret32.setText("32 cm");
+        rdbMeret32.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                rdbMeret32ItemStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlMeretLayout = new javax.swing.GroupLayout(pnlMeret);
         pnlMeret.setLayout(pnlMeretLayout);
@@ -239,35 +253,52 @@ public class PizzApp extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rdbMeret25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbMeret25ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rdbMeret25ActionPerformed
-
     private void cmdValaszthatoPizzakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdValaszthatoPizzakActionPerformed
-    int pizzaAlapAr = 0;
     int pizzaalap = cmdValaszthatoPizzak.getSelectedIndex();
-        if (pizzaalap == 1){
-            pizzaAlapAr = 1350;
+        if (pizzaalap == 0){
+            pizzaAlapAr = 1590;
+        }else if (pizzaalap == 1){
+            pizzaAlapAr = 1680;
         }else if (pizzaalap == 2){
-            pizzaAlapAr = 1550;
-        }else if (pizzaalap == 3){
             pizzaAlapAr = 1750;
-        }else if (pizzaalap == 4){
+        }else if (pizzaalap == 3){
             pizzaAlapAr = 2150;
-        };
+        }
         
         int meret = 1;
         int extra1 = 0;
         int extra2 = 0;
         int extra3 = 0;
-        int extrak = extra1 + extra2 + extra3;
-        int db = 1;
+        extrak = extra1 + extra2 + extra3;
+        db = 1;
         
-        int vegsoAr = (pizzaAlapAr * meret)+extrak;
+        vegsoAr = (pizzaAlapAr * meret)+extrak;
         vegsoAr *= db;
         
         lblAr.setText("" + vegsoAr);
     }//GEN-LAST:event_cmdValaszthatoPizzakActionPerformed
+
+    private void rdbMeret25ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret25ItemStateChanged
+        meret = .75;
+        
+        vegsoAr = (pizzaAlapAr * meret)+extrak;
+        vegsoAr *= db;
+        
+        lblAr.setText("" + vegsoAr);
+    }//GEN-LAST:event_rdbMeret25ItemStateChanged
+
+    private void rdbMeret25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbMeret25ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdbMeret25ActionPerformed
+
+    private void rdbMeret32ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rdbMeret32ItemStateChanged
+         meret = 1;
+        
+        vegsoAr = (pizzaAlapAr * meret)+extrak;
+        vegsoAr *= db;
+        
+        lblAr.setText("" + vegsoAr);
+    }//GEN-LAST:event_rdbMeret32ItemStateChanged
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

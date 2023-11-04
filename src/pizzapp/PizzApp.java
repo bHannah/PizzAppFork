@@ -48,32 +48,32 @@ public class PizzApp extends javax.swing.JFrame {
     }
 
     private String ValasztottFeltet() {
-        String feltetek = "";
+        String feltet = "";
         boolean ananaszKivalasztva = chbAnanasz.isSelected() == true;
         boolean sajtKivalasztva = chbSajt.isSelected() == true;
         boolean hagymaKivalasztva = chbHagyma.isSelected() == true;
         if (ananaszKivalasztva) {
-            feltetek += " - Ananász";
+            feltet += " - Ananász";
             if (sajtKivalasztva && hagymaKivalasztva) {
-                feltetek += "\n - Sajt\n - Hagyma";
+                feltet += "\n - Sajt\n - Hagyma";
             }
             else if (sajtKivalasztva) {
-                feltetek += "\n - Sajt";
+                feltet += "\n - Sajt";
             }
             else if (hagymaKivalasztva) {
-                feltetek += "\n - Hagyma";
+                feltet += "\n - Hagyma";
             }
         }
         else if (sajtKivalasztva) {
-            feltetek += " - Sajt";
+            feltet += " - Sajt";
             if (hagymaKivalasztva) {
-                feltetek += "\n - Hagyma";
+                feltet += "\n - Hagyma";
             }
         }
         else if (hagymaKivalasztva) {
-            feltetek += " - Hagyma";
+            feltet += " - Hagyma";
         }
-        return feltetek;
+        return feltet;
     }
 
     private String PizzaMeret() {
